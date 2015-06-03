@@ -6,6 +6,7 @@
  * 体験レッスンページのコンテンツ作成用JavaScript関数 + 汎用テキスト作成JavaScript関数ファイル。
  */
 
+//
 
 /* 
  * 関数名:disableInputs(dialog)

@@ -32,7 +32,9 @@ var fullHouse = "満席";
 * @return int timeTableStudents 時間割全体の予約人数
 */ 
 var getTotalStudentsOfTimeTable = function(timeTableRows) {
+	// 生徒の数を0で初期化する
 	var students = 0;
+	
 	for (var key in timeTableRows) {
 		students += timeTableRows[key].students;
 	}

@@ -83,7 +83,7 @@
 				// 予約済み授業のタブ内テーブルを作る
 				creator.outputTag('reservedDetail', 'lessonDetail', '#alreadyReserved');
 				// 受講済み授業のタブ内テーブルを作る
-				creator.outputTag('finishedDetail', 'lessonDetail', '#finishedLesson');
+				// creator.outputTag('finishedDetail', 'lessonDetail', '#finishedLesson');
 				// 予約済み授業と受講済み授業についてタブを作る
 				createTab('#tab-container');
 
@@ -125,6 +125,9 @@
 				// 絞り込みボタンをjqueryのボタンにする
 				$('.selectThemeButton').button();
 
+				// 注釈を作る
+				creator.outputTag('anotion', 'anotion', '.tabPanel');
+
 				// 予約中授業の連想配列を変数に入れる 
 				var reservedNow = creator.json['lessonReservedDetailTable']['table'];
 				// 受講済みの連想配列を変数に入れる
@@ -132,12 +135,11 @@
 				// 日ごと授業テーブルの連想配列を変数に入れる
 				var eachDayLessonTable = creator.json['memberTable']['table'];
 				// 予約中授業のテーブルの値を正規のものにする
-				reservedLessonValueInput('.lessonTable', eachDayLessonTable);
-				reservedValueInput('.reservedLessonTable', reservedNow);
-				// 受講済み授業のテーブルの値を正規のものにする
-				// tableColumnValueInput('.finishedLessonTable', 0, reservedNow, getTotalStudentsOfTimeTable);
-				// 授業のテーブルの値を正規のものにする
-				// tableColumnValueInput('.lessonTable', 0, reservedNow, getTotalStudentsOfTimeTable);
+				lessonTableValueInput('.lessonTable', eachDayLessonTable, "callReservedLessonValue");
+				// 予約中テーブルのテーブルの値をしかるべき値にする
+				lessonTableValueInput('.reservedLessonTable', reservedNow, "callMemberLessonValue");
+				// 受講済みテーブルのテーブルの値をしかるべき値にする
+				lessonTableValueInput('.finishedLessonTable', lessonFinished, "callMemberLessonValue");
 
 			});
 			</script>

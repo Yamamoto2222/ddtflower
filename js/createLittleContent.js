@@ -547,6 +547,8 @@ function callMemberDialog(dateText, calendar){
 	var date = createDateArray(dateText);
 	// ダイアログのタイトルを設定する
 	var dialogTitle = createDialogTiteDate(date[0], date[1], date[2]);
+	 //日付テキストのスラッシュをハイフンに置き換え、授業一覧テーブルのJSONの日付置換用のキーの値と置き換える
+	 creator.json.memberTable.date.value = dateText.replace(/\//g, '-');
 	// 予約希望ダイアログを作成する
 	 var mDialog = new memberDialog('memberDialog',dialogTitle,null, contentName, date);
 	mDialog.open();	//ダイアログを開く

@@ -206,7 +206,7 @@ input[type="text"]
  * 作成日 :2016.04.30
  */
 input[type="date"] {
-    width: 120px;	/* 最低限の幅を取る */
+    width: 125px;	/* 最低限の幅を取る */
 }
 
 /*

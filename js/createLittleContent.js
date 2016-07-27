@@ -3754,6 +3754,7 @@ function validateFirefoxKeyCode(keyCode,type){
 	return retBoo;	//判定結果を返す。
 }
 
+
 //テキストボックス等のname属性の日本語版を格納する連想配列。
 var errorJpNames = {
 		name:'氏名',

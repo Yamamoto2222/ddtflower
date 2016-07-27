@@ -35,10 +35,6 @@ class LoginCheckException extends  Exception{
 		//cookieがあるかどうかをチェックする。
 		if(isset($_COOKIE['user'])){
 			$retState = 1;	//タイムアウトであれば1をセットする
-		//タイムアウトしていなければ
-		} else {
-			//セッションIDを再発行してセッションを更新する
-			session_regenerate_id(true);
 		}
 		
 		return $retState;	//状態の整数値を返す
@@ -167,6 +163,8 @@ class account extends JSONDBManager{
 			//また、セッションとCookieに保存されているユーザIDが一致するかを確かめる。
 			if(isset($_SESSION['userId']) && isset($_COOKIE['userId']) 
 					&& $_SESSION['userId'] == $_COOKIE['userId']){
+				//セッションの変更時間を更新してログインを延長する
+				$_SESSION['modified'] = time();				
 				$retBoo = true;	//返却値の変数にtrueを格納する
 			//セッションがない状態であれば
 			} else {

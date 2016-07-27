@@ -491,10 +491,10 @@ function baseDialog(dialog){
                   		 },
                   		 icons : {primary : "ui-icon-person"}
 					},
-					//閉じるボタン
+					//キャンセルボタン
 					{
 						//ボタンテキスト
-						text:STR_CLOSE_JP,
+						text:STR_CANCEL_JP,
 						//ダイアログを閉じるボタンのイベントコールバック関数
 		                click:
                			 //コールバック関数
